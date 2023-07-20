@@ -1,0 +1,226 @@
+:root {
+  /*Native Css color variables*/
+--main: #191970;
+--primary: #EEE8AA;
+--secondary: #F0FFFF;
+--tertiary: #00FF7F;
+--active: #489c79;
+--buttonbg: #357b70;
+--gridc: darkgrey;
+--U: red;
+--S: white;
+--A: blue;
+/*Property variables*/
+--norm: 400;
+--bold: 700;
+--miw: 500px;
+--maw: 750px;
+--mid: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+    background-color:#191970;
+    font-family: 'Merriweather', serif; 
+    font-weight: var(--norm);
+    color: var(--tertiary);
+    font-size: 16px;
+    line-height: 1.6;
+}
+h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--primary); 
+    font-family: cursive, serif;
+    text-decoration: underline;
+  }
+  
+h2 {
+    font-size: 24px;
+    font-weight: var(--bold);
+  }
+  
+h3 {
+    font-size: 18px;
+    font-weight: var(--bold);
+}
+.page-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.about {
+  text-align: center;
+  margin: auto;
+  width:50%;
+  padding: 1%;
+}
+tr {
+    text-align: center;
+  }
+th {
+    padding-left: 5%;
+  }
+a {
+    color:var(--tertiary);
+  }
+a:hover {
+    text-decoration: none;
+  }
+a:visited {
+    color:var(--secondary);
+  }
+  
+a:active {
+    color: var(--active) ;
+  }
+.button, button {
+    border: none;
+    display: inline-block;
+    font-family: inherit;
+    background-color:var(--buttonbg) ;
+    color: var(--secondary);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 3px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    transition: opacity 0.2s;
+  }
+.button:hover, .button:focus, button:hover, button:focus {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+.button__secondary {
+    background-color: var(--tertiary);
+    color: var(--main);
+  }
+.navigation-list__item--active {
+    text-decoration: none;
+  }
+.profile_portrait {
+    height:250px;
+    width: 250px;
+    float: left;
+    margin-right: 40px;
+    border-radius: 50%;
+  }
+.page-footer {
+    clear:both;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    flex: 1 1 100px;
+  }
+.profile {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-top: 5%;
+    padding-bottom: 15%;
+  }
+.page-header {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    border-bottom: 4px groove var(--tertiary);
+    margin-bottom: 5%;
+  }
+.page-header_item {
+    flex: 0 1 200px;
+  }
+.page-header_item:last-child {
+    flex-grow: 1;
+    text-align: right;
+  }
+.navigation-list {
+    list-style-type: none;
+  }
+.navigation-list li{
+    display: inline-block;
+    margin-left: 15px;
+  }
+.grid__item {
+    display: inline-block;
+    width: 33%;
+    border-radius: 3%;
+  }
+@supports (display: grid) {
+  .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 20px;
+        margin: 0;
+    } 
+  .grid__item {
+      background-color: var(--gridc);
+      padding: 5%;
+      width: auto;
+      min-height: auto;
+      margin: 0;
+    }
+  .grid__item:last-child {
+      grid-column-start: 3;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+}
+@media all and (max-width: var(--miw)) {
+  .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+@media all and (min-width: var(--miw)) and (max-width: var(--maw)) {
+  .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+  }
+@media all and (max-width: var(--maw)) {
+  .grid {
+    grid-gap: 10px;
+  } 
+  .grid__item:last-child {
+      grid-column: auto/auto;
+      grid-row: auto/auto;
+    }
+    h1 {
+      font-size: 22px;
+    }
+  }
+.center {
+  display:flex;
+  justify-content: var(--mid);
+  align-items: var(--mid);
+  height:200px;
+  }
+  .newyork {
+    text-align: center;
+    margin: auto;
+    justify-content: var(--mid);
+    padding: 1%;
+  }
+  @keyframes color-change {
+    0% {
+      fill: var(--U);
+    }
+    50% {
+      fill: var(--S);
+    }
+    100% {
+      fill: var(--A);
+    }
+    }
+  .statue {
+    animation: 4s color-change infinite alternate linear;
+  }
+  @keyframes nymove {
+    from {
+      transform: rotate(180deg);
+    }
+    to {
+      transform: rotate(origin);
+    }
+  }
+  .words {
+    animation: 12s nymove infinite alternate ease-out;
+  }
